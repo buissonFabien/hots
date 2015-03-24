@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+</head>
+
+
+
+<body ng-app="Hots">
+	<div ng-controller="hotsCtrl">
+
+        <p>ENTRER RESULTATS</p>
+
+    		<div id="fond"  class="container">
+    			 
+    				<h2>Résultats de la rencontre</h2>
+
+
+                    <div ng-show ="selectedHero" >
+                        <p>Sélection du Héros</p>
+                        <ul ng-repeat="nomHeros in heros.Hero.nom"> 
+                            <div id="heroList"  class="col-md-1">
+                                <img id="img" src="../img/hero/{{nomHeros}}.png" ng-click="selectedHero(nomHeros)">
+                                <p>{{nomHeros}}</p>
+                            </div> 
+                        </ul>
+                    </div>
+
+                    <div  ng-show ="selectedMap">
+                        <p>Sélection de la Map</p>
+                        <ul ng-repeat="nomMap in maps.Maps.nom"> 
+                            <div id="heroList" class="col-md-2">
+                                <p>{{nomMap}}</p>
+                                <img src="../img/map/{{nomMap}}.png" ng-click="selectedMaps(nomMap)">
+                            </div>
+                        </ul>
+                    </div>
+
+                    <div ng-show="selectedResult">
+                        <form class="form-horizontal" method="post">
+            				<div >
+                                <div class="form-group">
+                                    <input type="radio" name="optradio" value="win" ng-model="result">
+            	       				<label for="inputWin">Victoire </label>
+            					</div>
+                                <div class="form-group">
+                                    <input type="radio" name="optradio" value="loose" ng-model="result">
+            			     		<label for="inputLoose" >Defaite </label>
+            					</div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="inputkill">Victimes</label>
+                                    <input type="text" ng-model="nbKills" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="inputDeath">Morts</label>
+                                    <input type="text" ng-model="nbDeath" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="inputHeal">Soins</label>
+                                    <input type="text" ng-model="heal" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="inputExp">Experience</label>
+                                    <input type="text" ng-model="exp" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="inputObj">Objectifs</label>
+                                    <input type="text" ng-model="obj" required>
+                                </div>
+            				</div>
+
+        					<div class="col-sm-offset-2 col-sm-10">
+        						<a href="#" id="impression" class="btn btn-primary btn-success" ng-show="validation" ng-click ="newResult(result, nbKills, nbDeath,heal,exp,obj)"><span class="glyphicon glyphicon-floppy-save"></span> 
+                                    Valider</a>
+                                <a href="#" class="btn btn-primary btn-danger" ng-show="retour" ng-click= "init()"><span class="glyphicon glyphicon-floppy-remove"></span> Retour</a>
+                                <a href="../home.html" class="btn btn-primary btn-success" ng-show="accueil"><span class="glyphicon glyphicon-floppy-remove"></span> Accueil</a>
+        					</div>
+
+        			     </form>
+                     </div> 
+                </div>
+                
+			</div>
+
+
+
+
+
+</body>
+</html>

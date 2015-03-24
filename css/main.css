@@ -1,0 +1,55 @@
+body{ 
+  margin:0;
+  padding:0;
+  background: url(../img/fond/hots.jpg) no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  opacity:0,95;
+}
+img{
+	width: 100%;
+}
+
+
+.header{
+
+	background-color: black;
+	/*padding-top: 80px;*/
+	padding:80px;
+}
+
+label, h2{
+	color: white;
+
+}
+
+.btn{
+	margin: 10px;
+}
+
+.btn:hover{
+	color:#3366FF;
+}
+
+p{
+	color: white;
+}
+
+#fond{
+	margin-left: 50px;
+	margin-right: 50px;
+
+	position: center;
+	-moz-border-radius:1px;
+	-webkit-border-radius:1px;
+	border-radius:1px 0;
+	border: 1px solid #3166ff;
+	background-color: black;
+
+}
+
+#heroList{
+	border: 1px solid #3166ff;
+	margin-bottom: 30px;
+
+}
