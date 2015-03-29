@@ -8,7 +8,8 @@ var app = angular.module('Hots',['ui.bootstrap']);
 app.controller('hotsCtrl', function($scope, $http, $modal, $log, $window){
 
 
-	$scope.putUrl = "http://hotsstats.herokuapp.com/put";	
+	// $scope.putUrl = "http://hotsstats.herokuapp.com/put";	
+	console.log("ok");
 	$scope.getUrl = "http://hotsstats.herokuapp.com/getData";
 
 
