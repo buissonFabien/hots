@@ -9,9 +9,9 @@ include Mongo
 
 before do
    content_type :json
-   headers 'Access-Control-Allow-Origin'  => '*', 
+   headers 'Access-Control-Allow-Origin'  => '*, null', 
    		   'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
-   		   # 'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
+   		   'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
 end
 
 def get_connection
