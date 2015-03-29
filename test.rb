@@ -16,7 +16,7 @@ end
 
 def get_connection
   return @db_connection if @db_connection
-  db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601')
+  db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601/')
   db_name = 'heroku_app35238099'
   @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
   @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
@@ -52,17 +52,12 @@ puts "ok"
 # 	@kb = @coll.find({'key' => ""}).to_a.to_json
 # end
 
-get '/getData' do	
-	puts "ok"
+get '/getData' do
+
 	db = get_connection
-	
-	puts "Collections"
-	puts "==========="
 	collections = db.collection_names
 	puts collections
 	data = coll.find().to_a.to_json
-
-
 end
 
 
