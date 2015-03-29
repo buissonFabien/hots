@@ -11,7 +11,7 @@ before do
    content_type :json
    headers 'Access-Control-Allow-Origin'  => '*', 
    		   'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
-   		   'Access-Control-Allow-Headers' => 'accept, origin, Origin, Content-Type : json'
+   		   'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
 end
 
 def get_connection
@@ -53,7 +53,7 @@ puts "ok"
 # end
 
 get '/getData' do	
-	post "ok"
+	puts "ok"
 	db = get_connection
 	
 	puts "Collections"
