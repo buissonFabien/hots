@@ -19,7 +19,7 @@ app.controller('hotsCtrl', function($scope, $http, $modal, $log, $window){
     $scope.statsBase = data;
     $scope.statsWeb = $scope.statsBase[0].value.articles;
  	$scope.isSomethingLoading--;
- 	console.log($scope.tab.length)
+ 	console.log($scope.statsBase)
 
   });
 
