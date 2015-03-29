@@ -53,6 +53,7 @@ puts "ok"
 # end
 
 get '/getData' do	
+	post "ok"
 	db = get_connection
 	
 	puts "Collections"
@@ -82,40 +83,40 @@ end
 #         "popular": ""
 #       }
 #     ]
-# }
-post '/post' do
-	corp = request.body.string
+# # }
+# post '/post' do
+# 	corp = request.body.string
 
-	db = get_connection
+# 	db = get_connection
 	 
-	puts "Collections"
-	puts "==========="
-	collections = db.collection_names
+# 	puts "Collections"
+# 	puts "==========="
+# 	collections = db.collection_names
 
-	topObject = JSON.parse(corp)
-	key = topObject["Fiterd"]
-	# articles = topObject["articles"]
+# 	topObject = JSON.parse(corp)
+# 	key = topObject["Fiterd"]
+# 	# articles = topObject["articles"]
 
-	$i=0
-	begin
-   		stats = Fiterd [$i]
+# 	$i=0
+# 	begin
+#    		stats = Fiterd [$i]
 
-		@hero	  	  = stats['hero']
-		@title	  = stats['map']
-		@categorie = stats['result']
-		@answer   = stats['kill']
+# 		@hero	  	  = stats['hero']
+# 		@title	  = stats['map']
+# 		@categorie = stats['result']
+# 		@answer   = stats['kill']
 
-		@rate     = stats['death']
-		@nbViews = stats['exp']
-		@popular = stats['obj']
+# 		@rate     = stats['death']
+# 		@nbViews = stats['exp']
+# 		@popular = stats['obj']
 
-		coll.update({ key: key },{ "$push" => {'value.articles' =>
-			{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
+# 		coll.update({ key: key },{ "$push" => {'value.articles' =>
+# 			{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
 
-	   	$i += 1
-	end while $i <= articles.length
+# 	   	$i += 1
+# 	end while $i <= articles.length
 
-end
+# end
 
 
 
@@ -146,64 +147,7 @@ end
 #       }
 #     ]
 # }
-post '/put' do
-	corp = request.body.string
-
-	db = get_connection
-	 
-	puts "Collections"
-	puts "==========="
-	collections = db.collection_names
-	puts collections
-
-	topObject = JSON.parse(corp)
-	key = topObject["key"]
-	articles = topObject["articles"]
-	$i=0
-	begin
-		art = articles [$i]
-
-		@id	  	  = art['id']
-		@title	  = art['title']
-		@categorie = art['categorie']
-		@answer   = art['answer']
-		@rate     = art['rate']
-		@nbViews = art['nbViews']
-		@popular = art['popular']
-
-		coll.update({ "key" => key, "value.articles.id" => @id},
-			 {"$set" => {"value.articles.$.title" => @title,
-			 			 "value.articles.$.categorie" => @categorie,
-			 			 "value.articles.$.answer" => @answer,
-			 			 "value.articles.$.rate" => @rate,
-			 			 "value.articles.$.nbViews" =>  @nbViews,
-			 			 "value.articles.$.popular" =>  @popular} })
-	   	$i += 1
-	end while $i > articles.length
-end
-
-
-
-###############################################################################
-# Effacer un article 
-# Format :
-#  {
-#   "key": "client2",
-#   "articles" : [
-#       {
-#         "id" : "",
-#         "title" : "",
-#         "categorie" : "",
-#         "answer"  : "",
-#         "rate"    : "",
-#         "nbViews" : "",
-#         "popular": ""
-#       }
-#     ]
-# }
-
-
-# post '/postAndCreate' do
+# post '/put' do
 # 	corp = request.body.string
 
 # 	db = get_connection
@@ -211,34 +155,30 @@ end
 # 	puts "Collections"
 # 	puts "==========="
 # 	collections = db.collection_names
+# 	puts collections
 
 # 	topObject = JSON.parse(corp)
 # 	key = topObject["key"]
 # 	articles = topObject["articles"]
+# 	$i=0
+# 	begin
+# 		art = articles [$i]
 
-# 	if coll.find( {"key" : key})
-# 	{
-# 		$i=0
-# 		begin
-# 	   		art = articles [$i]
+# 		@id	  	  = art['id']
+# 		@title	  = art['title']
+# 		@categorie = art['categorie']
+# 		@answer   = art['answer']
+# 		@rate     = art['rate']
+# 		@nbViews = art['nbViews']
+# 		@popular = art['popular']
 
-# 			@id	  	  = art['id']
-# 			@title	  = art['title']
-# 			@categorie = art['categorie']
-# 			@answer   = art['answer']
-
-# 			@rate     = art['rate']
-# 			@nbViews = art['nbViews']
-# 			@popular = art['popular']
-
-# 			coll.update({ key: key },{ "$push" => {'value.articles' =>
-# 				{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
-
-# 		   	$i += 1
-# 		end while $i <= articles.length
-# 	}
+# 		coll.update({ "key" => key, "value.articles.id" => @id},
+# 			 {"$set" => {"value.articles.$.title" => @title,
+# 			 			 "value.articles.$.categorie" => @categorie,
+# 			 			 "value.articles.$.answer" => @answer,
+# 			 			 "value.articles.$.rate" => @rate,
+# 			 			 "value.articles.$.nbViews" =>  @nbViews,
+# 			 			 "value.articles.$.popular" =>  @popular} })
+# 	   	$i += 1
+# 	end while $i > articles.length
 # end
-
-
-
-
