@@ -7,6 +7,24 @@ var app = angular.module('Hots',['ui.bootstrap']);
 
 app.controller('hotsCtrl', function($scope, $http, $modal, $log, $window){
 
+
+	$scope.putUrl = "http://hotsstats.herokuapp.com/put";	
+	$scope.getUrl = "http://hotsstats.herokuapp.com/getData";
+
+
+	$http.get($scope.getUrl
+    // ,{params :{url :$scope.CheminComplet}}
+	).success(function(data, status, headers, config) {
+
+    $scope.statsBase = data;
+    $scope.statsWeb = $scope.statsBase[0].value.articles;
+ 	$scope.isSomethingLoading--;
+ 	console.log($scope.tab.length)
+
+  });
+
+
+
 	$scope.maps = "";
 	$scope.maps = {
 		"Maps" : {
