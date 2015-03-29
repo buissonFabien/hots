@@ -10,7 +10,7 @@ app.controller('hotsCtrl', function($scope, $http, $modal, $log, $window){
 
 	// $scope.putUrl = "http://hotsstats.herokuapp.com/put";	
 	console.log("ok");
-	$scope.getUrl = "https://hotsstats.herokuapp.com/getData";
+	$scope.getUrl = "http://hotsstats.herokuapp.com/getData";
 
 
 	$http.get($scope.getUrl
@@ -18,7 +18,7 @@ app.controller('hotsCtrl', function($scope, $http, $modal, $log, $window){
 	).success(function(data, status, headers, config) {
 
     $scope.statsBase = data;
-    $scope.statsWeb = $scope.statsBase[0].value.articles;
+    $scope.statsWeb = $scope.statsBase[0];
  	$scope.isSomethingLoading--;
  	console.log($scope.statsBase)
 
