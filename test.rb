@@ -5,7 +5,7 @@ require 'mongo'
 require 'json/ext'
 require 'json'
 
-get '/getData' do
+get '/' do
   "learning ruby"
 end
 
