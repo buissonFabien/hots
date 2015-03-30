@@ -1,4 +1,9 @@
+require 'rubygems'
 require 'sinatra'
+require 'sinatra/reloader' if development? 
+require 'mongo'
+require 'json/ext'
+require 'json'
 
 get '/' do
   "learning ruby"
@@ -28,12 +33,6 @@ end
 
 
 
-# require 'rubygems'
-# require 'sinatra'
-# require 'sinatra/reloader' if development? 
-# require 'mongo'
-# require 'json/ext'
-# require 'json'
 
 # include Mongo
 
