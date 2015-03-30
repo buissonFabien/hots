@@ -1,15 +1,17 @@
 source 'http://rubygems.org'
-gem 'heroku'
-gem 'sinatra'
-gem 'mongo'
-gem 'thin'
-# gem 'json/ext'
-gem 'json'
+gem 'sinatra', '1.1.0'
 
-ruby '2.0.0'
 
-# group :development do
-# 	gem 'heroku'
-# 	# gem 'sinatra/reloader'
+# gem 'heroku'
+# gem 'mongo'
+# gem 'thin'
+# # gem 'json/ext'
+# gem 'json'
 
-# end
+# ruby '2.0.0'
+
+# # group :development do
+# # 	gem 'heroku'
+# # 	# gem 'sinatra/reloader'
+
+# # end
