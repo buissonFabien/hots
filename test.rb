@@ -17,6 +17,8 @@ end
 def get_connection
   puts "ok"
   return @db_connection if @db_connection
+  puts @db_connection
+  puts @db_name
   db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601/')
   db_name = 'heroku_app35238099'
   @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
@@ -36,7 +38,7 @@ db = get_connection
 
 
 get '/getData' do
-  db = get_connection
+  # db = get_connection
 
   "learning ruby"
 end
