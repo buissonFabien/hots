@@ -10,7 +10,7 @@ app.controller('hotsCtrl', function($scope, $http, $modal, $log, $window){
 
 	// $scope.putUrl = "http://hotsstats.herokuapp.com/put";	
 	console.log("ok");
-	$scope.getUrl = "http://hotsstats.herokuapp.com/getData";
+	$scope.getUrl = "https://hotsstats.herokuapp.com/getData";
 	
 
 	$http.get($scope.getUrl

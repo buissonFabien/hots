@@ -61,7 +61,7 @@ end
 
 get '/getData' do
   # get_connection
-puts db
+# puts db
   "learning ruby"
 end
 
