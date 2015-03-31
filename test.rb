@@ -21,7 +21,7 @@ def get_connection
   puts db_user
   puts db_password
   
-  return @db_connection if @db_connection
+  # return @db_connection if @db_connection
   db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601/')
   db_name = 'heroku_app35238099'
   # db_name = db.path.gsub(/^\//, '')
