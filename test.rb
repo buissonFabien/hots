@@ -26,12 +26,12 @@ def get_connection
   @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
   @db_connection
   
-  puts @db_connection
-  puts @db_name
+  puts db_password
+  puts db_user
 end
 
 
-db = get_connection
+# db = get_connection
 # collections = @db.collection_names
 # puts collections
 # last_collection = collections[-1]
@@ -59,7 +59,7 @@ db = get_connection
 
 
 get '/getData' do
-  db = get_connection
+  get_connection
 
   "learning ruby"
 end
