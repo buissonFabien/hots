@@ -5,6 +5,16 @@ require 'json/ext'
 require 'json'
 include Mongo
 
+
+before do
+   content_type :json
+   headers 'Access-Control-Allow-Origin'  => '*', 
+         'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
+         'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
+end
+
+
+
 get '/getData' do
   "learning ruby"
 end
@@ -31,16 +41,6 @@ end
 
 
 
-
-
-
-
-# before do
-#    content_type :json
-#    headers 'Access-Control-Allow-Origin'  => '*', 
-#    		   'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
-#    		   'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
-# end
 
 # def get_connection
 #   return @db_connection if @db_connection
