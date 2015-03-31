@@ -4,7 +4,7 @@ require 'sinatra/reloader' if development?
 require 'mongo'
 require 'json/ext'
 require 'json'
-require 'uri'
+# require 'uri'
 
 include Mongo
 
