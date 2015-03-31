@@ -36,6 +36,8 @@ coll = db.collection(last_collection)
 
 
 get '/getData' do
+  db = get_connection
+
   "learning ruby"
 end
 
