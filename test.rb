@@ -3,8 +3,9 @@ require 'sinatra/reloader' if development?
 require 'mongo'
 require 'json/ext'
 require 'json'
+include Mongo
 
-get '/getDta' do
+get '/getData' do
   "learning ruby"
 end
 
@@ -33,7 +34,6 @@ end
 
 
 
-# include Mongo
 
 # before do
 #    content_type :json
