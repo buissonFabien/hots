@@ -60,7 +60,7 @@ end
 
 
 get '/getData' do
-  # get_connection
+  db = get_connection
 # puts db
   "learning ruby"
 end
