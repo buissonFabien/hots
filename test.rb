@@ -30,7 +30,7 @@ def get_connection
 end
 
 
-db = get_connection
+# db = get_connection
 
 
 
