@@ -19,7 +19,7 @@ end
 def get_connection
   puts "ok"
   return @db_connection if @db_connection
-  db = URI.parse(ENV['mongodb://fab:fab@ds031601.mongolab.com:31601/'])
+  db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601/')
   db_name = 'heroku_app35238099'
   # db_name = db.path.gsub(/^\//, '')
   @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
