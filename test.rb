@@ -30,7 +30,7 @@ def get_connection
 end
 
 
-# db = get_connection
+db = get_connection
 
 
 
@@ -55,7 +55,7 @@ end
 
 
 get '/getData' do
-  # db = get_connection
+  db = get_connection
 
   "learning ruby"
 end
