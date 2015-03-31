@@ -21,8 +21,9 @@ def get_connection
   return @db_connection if @db_connection
   puts @db_connection
   puts @db_name
-  db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601/')
-  db_name = 'heroku_app35238099'
+  db = URI.parse(ENV['mongodb://fab:fab@ds031601.mongolab.com:31601/heroku_app35238099'])
+  # db_name = 'heroku_app35238099'
+  db_name = db.path.gsub(/^\//, '')
   @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
   @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
   @db_connection
@@ -30,6 +31,20 @@ end
 
 
 db = get_connection
+
+
+
+# def get_connection
+#   return @db_connection if @db_connection
+#   db = URI.parse(ENV['MONGOHQ_URL'])
+#   db_name = db.path.gsub(/^\//, '')
+#   @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+#   @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.password.nil?)
+#   @db_connection
+# end
+
+# db = get_connection
+
 
 
 # collections = db.collection_names
