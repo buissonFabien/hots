@@ -18,10 +18,10 @@ end
 
 def get_connection
   puts "ok"
-  puts db_user
-  puts db_password
-  
-  # return @db_connection if @db_connection
+  # puts db_user
+  # puts db_password
+
+  return @db_connection if @db_connection
   db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601/')
   db_name = 'heroku_app35238099'
   # db_name = db.path.gsub(/^\//, '')
@@ -32,7 +32,7 @@ def get_connection
 end
 
 
-# db = get_connection
+db = get_connection
 # collections = @db.collection_names
 # puts collections
 # last_collection = collections[-1]
@@ -60,7 +60,7 @@ end
 
 
 get '/getData' do
-  get_connection
+  # get_connection
 
   "learning ruby"
 end
