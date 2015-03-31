@@ -1,47 +1,11 @@
 require 'sinatra'
-# require 'sinatra/reloader' if development? 
+require 'sinatra/reloader' if development? 
 require 'mongo'
 require 'json/ext'
 require 'json'
 
-
-include Mongo
-
-before do
-   content_type :json
-   headers 'Access-Control-Allow-Origin'  => '*', 
-   		   'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
-   		   'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
-end
-
-def get_connection
-  return @db_connection if @db_connection
-  db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601/')
-  db_name = 'heroku_app35238099'
-  @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
-  @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
-  @db_connection
-end
-
-db = get_connection
-
-
-collections = db.collection_names
-puts collections
-last_collection = collections[-1]
-coll = db.collection(last_collection)
-
-puts "ok"
-
-
-
-
-get '/getData' do
+get '/getDta' do
   "learning ruby"
-    db = get_connection
-  collections = db.collection_names
-  puts collections
-  data = coll.find().to_a.to_json
 end
 
 
@@ -68,6 +32,34 @@ end
 
 
 
+
+# include Mongo
+
+# before do
+#    content_type :json
+#    headers 'Access-Control-Allow-Origin'  => '*', 
+#    		   'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
+#    		   'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
+# end
+
+# def get_connection
+#   return @db_connection if @db_connection
+#   db = URI.parse('mongodb://fab:fab@ds031601.mongolab.com:31601/')
+#   db_name = 'heroku_app35238099'
+#   @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+#   @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+#   @db_connection
+# end
+
+# db = get_connection
+
+
+# collections = db.collection_names
+# puts collections
+# last_collection = collections[-1]
+# coll = db.collection(last_collection)
+
+# puts "ok"
 
 
 
