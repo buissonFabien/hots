@@ -30,8 +30,11 @@ def get_connection
 end
 
 
-db = get_connection
-
+@db = get_connection
+collections = @db.collection_names
+puts collections
+last_collection = collections[-1]
+coll = @db.collection(last_collection)
 
 
 # def get_connection
