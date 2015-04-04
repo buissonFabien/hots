@@ -4,7 +4,7 @@ require 'sinatra/reloader' if development?
 require 'mongo'
 require 'json/ext'
 require 'json'
-# require 'uri'
+require 'uri'
 
 include Mongo
 
@@ -59,7 +59,7 @@ puts collections
 
 get '/getData' do
   # db = get_connection
-# # puts db
+# puts db
   "learning ruby"
 end
 
