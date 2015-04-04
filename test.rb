@@ -18,9 +18,7 @@ end
 
 def get_connection
   puts "ok"
-  # puts db_user
-  # puts db_password
-
+  
   return @db_connection if @db_connection
   db = URI.parse('mongodb://fabHots:tamere1234@ds031601.mongolab.com:31601/')
   db_name = 'heroku_app35238099'
@@ -35,8 +33,8 @@ end
 db = get_connection
 collections = @db.collection_names
 puts collections
-last_collection = collections[-1]
-coll = @db.collection(last_collection)
+# last_collection = collections[-1]
+# coll = @db.collection(last_collection)
 
 
 # def get_connection
@@ -60,9 +58,9 @@ coll = @db.collection(last_collection)
 
 
 get '/getData' do
-  db = get_connection
-# puts db
-  "learning ruby"
+  # db = get_connection
+# # puts db
+#   "learning ruby"
 end
 
 
