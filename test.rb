@@ -60,7 +60,7 @@ puts collections
 get '/getData' do
   # db = get_connection
 # # puts db
-#   "learning ruby"
+  "learning ruby"
 end
 
 
