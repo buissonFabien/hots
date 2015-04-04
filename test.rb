@@ -5,28 +5,23 @@ require 'mongo'
 require 'json/ext'
 require 'json'
 # require 'uri'
-
 include Mongo
-
 
 before do
    content_type :json
    headers 'Access-Control-Allow-Origin'  => '*', 
-         'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
-         'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
+           'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
+           'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
 end
 
 def get_connection
-  puts "ok"
-  
-  return @db_connection if @db_connection
-  db = URI.parse('mongodb://fabHots:tamere1234@ds031601.mongolab.com:31601/')
-  db_name = 'heroku_app35238099'
-  # db_name = db.path.gsub(/^\//, '')
-  @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
-  @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+    puts "ok"
+    return @db_connection if @db_connection
+    db = URI.parse('mongodb://fabHots:tamere1234@ds031601.mongolab.com:31601/')
+    db_name = 'heroku_app35238099'
+    @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+    @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
   @db_connection
-  
 end
 
 
